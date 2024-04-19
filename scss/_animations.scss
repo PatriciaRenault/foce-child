@@ -1,0 +1,113 @@
+//********************************************* KEYFRAMES D'ANIMATION ******************************************//
+
+
+
+////////////////////////     fade in     /////////////////
+// fondu
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Effet de fade-in des sections en descendant et en montant
+
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  
+  @keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+// Fade in en montant pour le menu burger
+
+  @keyframes fade-in-top-opacity {
+    from {
+      opacity:0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity:1;
+      transform: translateY(0);
+    }
+  }
+///////////////////////////    effet de flottement    ///////////////////
+
+  // effet de flottement  pour les chats dans le menu burger
+  @keyframes flottement {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(40px)
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+// effet de flottement pour le logo
+@keyframes floatLogo{
+  0% {
+      transform: translate3d(0, 0, 0);
+  }
+  25% {
+      transform: translate3d(-15px, 10px, 0);
+  }
+  50%{
+        transform: translate3d(15px, 0px, 0);
+  }
+  75%{
+        transform: translate3d(-15px, 10px, 0);
+  }
+  100% {
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+
+//////////////////////////     effet de rotation       ////////////////////////////
+
+// effet de rotation des fleurs
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+   }
+
+
+///////////////////////////             effet d'apparition         /////////////////
+
+
+// Création d'un keyframe pour l'apparition des titres
+@keyframes apparition {
+  from {
+    transform: translateY(120px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

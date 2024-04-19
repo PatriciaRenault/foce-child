@@ -1,0 +1,405 @@
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+
+
+ /////////////////////////////////////     import des Keyframes    ///////////////////////////
+ 
+ @import "_animations";
+
+
+body {
+
+  /////////////////////////////////////////////////////    HEADER   ///////////////////////////////////////////////////////////////////////:
+  
+  .site-header {
+    .main-navigation {                            // menu de navigation
+      position: relative;                                   // position relative par rapport au conteneur parent.
+      display: flex;                                        //  flex, ce qui permet de les aligner facilement.
+      align-items: center;                                  // Les éléments à l'intérieur de la navigation sont centres
+      justify-content: center;
+      height: 80px;                                         //  hauteur de la navigation 80 pixels.
+      .site-title {
+        &:hover {                                           //  au survol
+          color: #000 !important;
+        }
+        @media (max-width: 740px) {                         // Pour les ecrans max 740px
+          display: none !important;                         // le titre du site est masqué
+        }
+      }
+    // Menu Burger
+      .burger-icon {                             // icone burger
+        display: block !important;                          // icone en tant que bloc
+        position: absolute;                                 // position absolue 
+        right: 150px;                                       // 150px a droite par rapport au parent
+        &.line {                                 // creation des lignes de l'icone
+          width: 100%;
+          height: 2px;
+          background-color: #000;
+          transition: transform 0.4s linear;                 // Animation de transition pour la transformation des lignes lors du passage de l'icône du menu burger à l'icône de croix.
+        }
+    // Configuration pour la transformation en croix
+        .croixgauche{
+          transform: rotate(-45deg) translateY(3.5px);       // Les lignes sont transformées pour former une croix.
+          transition: transform 0.4s linear;                 // Animation de transition pour la transformation des lignes en croix.
+        }
+        .croixdroite{
+          transform: rotate(45deg) translateY(-3.5px);
+          transition: transform 0.4s linear;
+        }
+      }
+    }
+    // style du menu de navigation 
+    .sidenav {
+      display: flex;                                                                // Flexbox  
+      flex-direction: column;                                                       // disposition en colonne
+      justify-content: flex-start;                                                  // Alignement au début de la colonne.
+      align-items: center!important;                                                          // Centre sur la page
+      height: 0;                                                                    // Initialement la hauteur est 0 pour que l'on ne le voit pas
+      width: 100%;                                                                  // La largeur  à 100% du son conteneur.
+      max-width: 1440px;                                                            // Le menu est limité à 1440 pixels de large
+      position: fixed;                                                              // Position fixe par rapport à la fenêtre du navigateur.
+      top: 80px;                                                                    // Place l'élément à 80 pixels en dessous du haut de la fenêtre
+      background-color:#FFF5E9;                                                   // Couleur du background 
+      overflow: hidden;                                                             // Cache tout contenu qui depasse
+      transition: 0.5s;                                                             // Ajoute une transition de 0.5 s pour les modifications de style.
+      z-index: 1;                                                                   // index d'affichage a 1.
+    // si le menu doit être visible 
+      &.active {                                                         
+        animation: fade-in-top-opacity 2s ease-in-out;                              // animation d'opacité et de translation sur l'élément.
+        height: calc(100% - 80px);                                                  // la hauteur est de 100% moins la hauteur du menu nav pour qu'il reste visible
+        max-width: 1440px;                                                          // la largeur maximale
+      }
+    // affichage du logo Koukaki
+      .burger-logo {                      
+        width: 250px;
+        height: 150px;
+        margin-bottom: 50px;
+        margin-top: 20px;
+        animation: floatLogo 6s 1s ease-in-out infinite;                           //animation floatLogo, durée totale 6s,  1s pour le délai avant le début de l'animation,l'animation commence lentement, accélère, puis ralentit), se répéte indéfiniment.
+      }
+    // styles de la liste de lien du menu
+      ul {                                 
+        width: 100%;                                             //100% de la largeur de son conteneur.
+        display: flex;                                           // display flex
+        flex-direction: column;                                  // en colonne
+        justify-content: center;                               // centré verticalement sur la page
+        align-items: center;                                     // centré horizontalement
+        gap: 30px;                                               // espace de 30px entre les liens
+        list-style-type: none;                                   // pas de bullet points
+        margin: 0;                                               // pas de marge
+        li {                      // les elements de la liste
+          font-size: 64px;        
+          @media (max-width: 660px) {
+            font-size: 40px;
+          }
+          @media (max-width: 424px) {
+            font-size: 25px;
+          }
+          &::before, &::after {
+            @media (max-width: 1160px) {
+              content: '' !important;
+            }
+          } 
+          } 
+          a {
+            text-decoration: none;                               // pas de soulignement
+            &:hover {                                            // au survol ombre de couleur orange
+              filter: drop-shadow(0px 0px 5px #FF5C00);
+              color: #000;                                     // texte noir
+            }
+          }
+        }
+        .studioKoukaki {
+          margin-top: 120px;
+        }
+        // affichage des images des fleur et des chats dans le menu burger
+        #burger-story {                                                     // pseudo-éléments ::before pour ajouter la fleur avant l'élément avec l'ID #burger-story.
+          &::before {
+            content: url(./assets/images/burger-menu/Fleur-violette.png);
+            position: absolute;
+            top: 50px;
+            left: -80px;
+          }
+          &::after {
+            content: url(./assets/images/burger-menu/Paquerette-blanche.png);
+            position: absolute;
+            top: 90px;
+            left: 1030px;
+          } 
+        }
+        #burger-characters {
+          &::before {
+            content: url(./assets/images/burger-menu/Chat-bleu.png);
+            position: absolute;
+            top: 160px;
+            left: 300px;
+          }
+          &::after {
+            content: url(./assets/images/burger-menu/Fleur-rose.png);
+            position: absolute;
+            top: 300px;
+            left: 1330px;
+          }
+        }
+        #burger-place {
+          &::before {
+            content: url(./assets/images/burger-menu/Chat-noir.png);
+            position: absolute;
+            top: 450px;
+            left: 1100px;
+          }
+          &::after {
+            content: url(./assets/images/burger-menu/Fleur-boule-orange.png);
+            position: absolute;
+            top: 430px;
+            left: 250px;
+          }
+        }
+        #burger-studio {
+          &::before {
+            content: url(./assets/images/burger-menu/Chat-roux.png);
+            position: absolute;
+            top: 650px;
+            left: 100px;
+          }
+          &::after {
+            content: url(./assets/images/burger-menu/Fleur-orange-coin-droit.png);
+            position: absolute;
+            top: 580px;
+            left: 1100px;
+          }
+        }
+        // ajout des animations rotation sur les fleurs
+        #burger-story::before, #burger-story::after, #burger-characters::after,#burger-place::after, #burger-studio::after  {
+          transform-origin: center center;                //l'element sera transformé a partir de son centre
+          animation: rotation 20s linear infinite;        // rotation de 20s lineaire et infinie
+        }
+        // ajout des animations flottement sur les chats
+        #burger-characters::before, #burger-place::before, #burger-studio::before {
+          animation: flottement 6s 1s ease-in-out infinite;          // flottement de 6s a partir d'une seconde qui commence lentement, accélère, puis ralentit à la fin et infinie
+
+      }
+    }
+  }
+
+  main{
+
+  ////////////////////////////////////////////////    bannière du site et logo     /////////////////////////////////////////////////////////////////
+  
+    .banner {
+      position: relative;                                                //Positionne l'élément de manière relative par rapport à sa position normale dans le flux du document.
+      animation: fade-in-down 3s ease-in-out;                           // fait apparaître la banner en la faisant glisser de haut en bas tout en augmentant progressivement son opacité. 
+      #logo-parallax {                                                   //effet de parallaxe entre le titre et la vidéo.
+        z-index: 10;
+        img {
+          z-index: 1;                                                                      // logo en premier plan
+          position: sticky;                                                               // image fixe lors du défilement.
+          margin-top: -14%;                                                               // position du logo
+          margin-left: 1%;
+          width: 51em;                                                                   // largeur de l'image
+          animation: floatLogo 6s 10s ease-in-out infinite, fade-in-up 10s ease-in-out;  // animation du logo flottement
+       }
+      }
+      &__video{
+        object-fit: fill;                                                                // la vidéo remplie les dimensions de son conteneur.
+        position: absolute;                                                              //Positionne l'élément de manière absolue par rapport à son premier ancêtre
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        z-index: 0;                                                                      // video en arriere plan
+        @media (max-width: 740px) {
+          display: none;                                                                 // supprime la video pour les petits ecrans
+        }                                                                  
+      }
+    }
+
+    ///////////////////////////////////////////////    Section Story  ///////////////////////////////////////////////////////////////////////////
+
+    #story {
+      overflow: hidden;                                        //lecontenu qui dépasse les dimensions du conteneur sera caché
+
+      .story{
+        // animation au chargement de la page
+        animation: fade-in-up 10s ease-in-out;                 // fondu en montant au chargement de la page
+        &__article p{
+          animation: fade-in-down 10s ease-in-out;             // le paragraph est en fondu descendant au chargement de la page
+        }
+      }
+
+      /*************************** article characters **********************************/
+      
+      #characters {
+        h3 {
+          width: 55%;
+          @media (max-width: 1350px) {
+            width : 100%;
+          }
+
+        }
+
+        /* ------------ style pour le carroussel des chats --------------------*/
+        .swiper {
+          width: 100%;                        //Définit la largeur à 100% de la largeur de son conteneur
+          padding-top: 50px;                  // Ajoute un espacement en haut et en bas de l'élément.
+          padding-bottom: 100px;
+          margin: auto;                       // Centre l'élément horizontalement.
+          margin-left: 3.5em !important;      //  Définit une marge gauche de 3.5 ems
+          &-slide {                           //les styles pour chaque diapositive
+            background-position: center;      // position de l'image d'arrière-plan et sa taille
+            background-size: cover;
+            width: 350px !important;          // largeur et hauteur des diapositives du carrousel.
+            height: 350px;
+            margin-right: 40px;               //marges à droite et à gauche de chaque diapositive.
+            margin-left: 40px;
+          }
+          img {                               // les images à l'intérieur de .swiper ont une largeur de 100% de leur conteneur.
+            display: block;
+            width: 100%;
+          }
+        }
+        
+      } 
+      /************************************Article Lieu *****************************/
+      #place {
+        background-image: url("./assets/images/Studio_Koukaki-image_place.png");   //Définit une image d'arrière-plan
+        background-size: cover;                                                   //l'image couvre entièrement l'arrière-plan 
+
+        // animation au chargement de la page
+        p{
+          animation: fade-in-down 10s ease-in-out;                                 // le paragraph est en fondu descendant au chargement de la page
+        }
+
+      /*--------------- style pour le parralaxe des nuages -----------------------*/
+        #big_cloud {                                                               // Le grand nuage
+          width: 316px;
+          height: 122px;
+          position: relative;
+          top: 140px;
+          left: 150px;
+          transform: scaleX(-1) scaleY(-1);
+          filter: blur(15px);
+          z-index:10 ;                                                     // Applique un flou gaussien à l'élément avec un rayon de flou de 15 pixels.
+        }
+        #little_cloud {
+          width: 142px;
+          height: 55px;
+          top: 140px;
+          left: 150px;
+          position: relative;
+          filter: blur(15px);
+        }
+
+      } 
+    } 
+
+    /////////////////////////////////       section studio                   //////////////////////////
+    
+    #studio{
+      animation: fade-in-up 10s ease-in-out;  // animation au chargement de la page
+      p{
+        animation: fade-in-down 10s ease-in-out; // le paragraph descend au chargement de la page
+      }
+    }
+
+     ////////////////////////////////       section-finale des oscars        /////////////////////////
+    .nominations{
+	    display: flex;
+      justify-content: center;
+      width: 100%;
+      min-height: 275px;
+      margin-top: 10%;
+      margin-bottom: -25%;
+      position: relative;
+      z-index: -1;
+      @media (max-width: 920px) {
+        flex-direction: column;                      // en colonne sur les petits ecrans
+      }
+      h3{
+        background-image: url("./assets/images/fondorange.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        line-height: 1;
+        flex-wrap: wrap;
+      }
+      img{
+        object-fit: contain;                         //l'image sera entièrement visible sans déformation
+      }
+    } 
+  }
+  ///////////////////////////////////    footer       ////////////////////////////////
+  .site-footer {
+    animation: fade-in-up 10s ease-in-out;  // animation des sections au chargement de la page
+    ul {
+      margin-top: 25%;
+   }
+  }
+  //////////////////      Animation des titres avec une apparence progressive de chaque mot  ///////////////
+  .animation-titres {
+    display: flex;                         // définit le conteneur comme un conteneur flex, ce qui permet de positionner les éléments enfants horizontalement.
+    justify-content: center;               // centre les éléments enfants horizontalement
+    overflow: hidden;                      // masque tout contenu qui dépasse les limites du conteneur
+    & > span {                             //  Cible tous les éléments <span> qui sont des enfants directs du conteneur
+      opacity: 0;                          // mots sont invisibles
+    }
+    .texte-mot {
+      animation: apparition 2s ease-in-out forwards;    // L'animation dure 2 secondes avec une fonction de temporisation ease-in-out (les mots commenceront lentement leur apparition, accéléreront à mi-chemin, puis ralentiront à la fin) et conserve l'état final de l'animation (forwards).
+    }
+  }
+
+}
+    
+ /* -------------effet de fleurs qui tournent en continu sur elles-mêmes ------------------*/
+
+/* classes appliquant la rotation */
+
+.rotate_af::after{
+  animation: rotation 4s linear infinite; /* Rotation continue pendant 4 secondes */
+  }
+  
+  .rotate_bf::before{
+  animation: rotation 4s linear infinite; /* Rotation continue pendant 4 secondes */
+  }
+  
+  
+  
+  /* transform-origin pour que les fleurs tournent sur leur centre */
+  
+  #studio h2::after {
+  transform-origin: 54px 54px!important;   //coordonnées des points à partir desquels les rotations CSS seront effectuées.
+  }
+  
+  #studio h2::before {
+  transform-origin: 101px 101px!important;
+  }
+  
+  .site-footer::before, .story h2::after {
+  transform-origin: 77px 77px!important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,415 @@
+@charset "UTF-8";
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-top-opacity {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flottement {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes floatLogo {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(-15px, 10px, 0);
+  }
+  50% {
+    transform: translate3d(15px, 0px, 0);
+  }
+  75% {
+    transform: translate3d(-15px, 10px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes apparition {
+  from {
+    transform: translateY(120px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+body .site-header .main-navigation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+body .site-header .main-navigation .site-title:hover {
+  color: #000 !important;
+}
+@media (max-width: 740px) {
+  body .site-header .main-navigation .site-title {
+    display: none !important;
+  }
+}
+body .site-header .main-navigation .burger-icon {
+  display: block !important;
+  position: absolute;
+  right: 150px;
+}
+body .site-header .main-navigation .burger-icon.line {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transition: transform 0.4s linear;
+}
+body .site-header .main-navigation .burger-icon .croixgauche {
+  transform: rotate(-45deg) translateY(3.5px);
+  transition: transform 0.4s linear;
+}
+body .site-header .main-navigation .burger-icon .croixdroite {
+  transform: rotate(45deg) translateY(-3.5px);
+  transition: transform 0.4s linear;
+}
+body .site-header .sidenav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center !important;
+  height: 0;
+  width: 100%;
+  max-width: 1440px;
+  position: fixed;
+  top: 80px;
+  background-color: #FFF5E9;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 1;
+}
+body .site-header .sidenav.active {
+  animation: fade-in-top-opacity 2s ease-in-out;
+  height: calc(100% - 80px);
+  max-width: 1440px;
+}
+body .site-header .sidenav .burger-logo {
+  width: 250px;
+  height: 150px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  animation: floatLogo 6s 1s ease-in-out infinite;
+}
+body .site-header .sidenav ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  list-style-type: none;
+  margin: 0;
+}
+body .site-header .sidenav ul li {
+  font-size: 64px;
+}
+@media (max-width: 660px) {
+  body .site-header .sidenav ul li {
+    font-size: 40px;
+  }
+}
+@media (max-width: 424px) {
+  body .site-header .sidenav ul li {
+    font-size: 25px;
+  }
+}
+@media (max-width: 1160px) {
+  body .site-header .sidenav ul li::before, body .site-header .sidenav ul li::after {
+    content: "" !important;
+  }
+}
+body .site-header .sidenav ul a {
+  text-decoration: none;
+}
+body .site-header .sidenav ul a:hover {
+  filter: drop-shadow(0px 0px 5px #FF5C00);
+  color: #000;
+}
+body .site-header .sidenav .studioKoukaki {
+  margin-top: 120px;
+}
+body .site-header .sidenav #burger-story::before {
+  content: url(./assets/images/burger-menu/Fleur-violette.png);
+  position: absolute;
+  top: 50px;
+  left: -80px;
+}
+body .site-header .sidenav #burger-story::after {
+  content: url(./assets/images/burger-menu/Paquerette-blanche.png);
+  position: absolute;
+  top: 90px;
+  left: 1030px;
+}
+body .site-header .sidenav #burger-characters::before {
+  content: url(./assets/images/burger-menu/Chat-bleu.png);
+  position: absolute;
+  top: 160px;
+  left: 300px;
+}
+body .site-header .sidenav #burger-characters::after {
+  content: url(./assets/images/burger-menu/Fleur-rose.png);
+  position: absolute;
+  top: 300px;
+  left: 1330px;
+}
+body .site-header .sidenav #burger-place::before {
+  content: url(./assets/images/burger-menu/Chat-noir.png);
+  position: absolute;
+  top: 450px;
+  left: 1100px;
+}
+body .site-header .sidenav #burger-place::after {
+  content: url(./assets/images/burger-menu/Fleur-boule-orange.png);
+  position: absolute;
+  top: 430px;
+  left: 250px;
+}
+body .site-header .sidenav #burger-studio::before {
+  content: url(./assets/images/burger-menu/Chat-roux.png);
+  position: absolute;
+  top: 650px;
+  left: 100px;
+}
+body .site-header .sidenav #burger-studio::after {
+  content: url(./assets/images/burger-menu/Fleur-orange-coin-droit.png);
+  position: absolute;
+  top: 580px;
+  left: 1100px;
+}
+body .site-header .sidenav #burger-story::before, body .site-header .sidenav #burger-story::after, body .site-header .sidenav #burger-characters::after, body .site-header .sidenav #burger-place::after, body .site-header .sidenav #burger-studio::after {
+  transform-origin: center center;
+  animation: rotation 20s linear infinite;
+}
+body .site-header .sidenav #burger-characters::before, body .site-header .sidenav #burger-place::before, body .site-header .sidenav #burger-studio::before {
+  animation: flottement 6s 1s ease-in-out infinite;
+}
+body main .banner {
+  position: relative;
+  animation: fade-in-down 3s ease-in-out;
+}
+body main .banner #logo-parallax {
+  z-index: 10;
+}
+body main .banner #logo-parallax img {
+  z-index: 1;
+  position: sticky;
+  margin-top: -14%;
+  margin-left: 1%;
+  width: 51em;
+  animation: floatLogo 6s 10s ease-in-out infinite, fade-in-up 10s ease-in-out;
+}
+body main .banner__video {
+  -o-object-fit: fill;
+     object-fit: fill;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  z-index: 0;
+}
+@media (max-width: 740px) {
+  body main .banner__video {
+    display: none;
+  }
+}
+body main #story {
+  overflow: hidden;
+  /*************************** article characters **********************************/
+  /************************************Article Lieu *****************************/
+}
+body main #story .story {
+  animation: fade-in-up 10s ease-in-out;
+}
+body main #story .story__article p {
+  animation: fade-in-down 10s ease-in-out;
+}
+body main #story #characters {
+  /* ------------ style pour le carroussel des chats --------------------*/
+}
+body main #story #characters h3 {
+  width: 55%;
+}
+@media (max-width: 1350px) {
+  body main #story #characters h3 {
+    width: 100%;
+  }
+}
+body main #story #characters .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  margin: auto;
+  margin-left: 3.5em !important;
+}
+body main #story #characters .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 350px !important;
+  height: 350px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+body main #story #characters .swiper img {
+  display: block;
+  width: 100%;
+}
+body main #story #place {
+  background-image: url("./assets/images/Studio_Koukaki-image_place.png");
+  background-size: cover;
+  /*--------------- style pour le parralaxe des nuages -----------------------*/
+}
+body main #story #place p {
+  animation: fade-in-down 10s ease-in-out;
+}
+body main #story #place #big_cloud {
+  width: 316px;
+  height: 122px;
+  position: relative;
+  top: 140px;
+  left: 150px;
+  transform: scaleX(-1) scaleY(-1);
+  filter: blur(15px);
+  z-index: 10;
+}
+body main #story #place #little_cloud {
+  width: 142px;
+  height: 55px;
+  top: 140px;
+  left: 150px;
+  position: relative;
+  filter: blur(15px);
+}
+body main #studio {
+  animation: fade-in-up 10s ease-in-out;
+}
+body main #studio p {
+  animation: fade-in-down 10s ease-in-out;
+}
+body main .nominations {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 275px;
+  margin-top: 10%;
+  margin-bottom: -25%;
+  position: relative;
+  z-index: -1;
+}
+@media (max-width: 920px) {
+  body main .nominations {
+    flex-direction: column;
+  }
+}
+body main .nominations h3 {
+  background-image: url("./assets/images/fondorange.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  line-height: 1;
+  flex-wrap: wrap;
+}
+body main .nominations img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body .site-footer {
+  animation: fade-in-up 10s ease-in-out;
+}
+body .site-footer ul {
+  margin-top: 25%;
+}
+body .animation-titres {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+body .animation-titres > span {
+  opacity: 0;
+}
+body .animation-titres .texte-mot {
+  animation: apparition 2s ease-in-out forwards;
+}
+
+/* -------------effet de fleurs qui tournent en continu sur elles-mêmes ------------------*/
+/* classes appliquant la rotation */
+.rotate_af::after {
+  animation: rotation 4s linear infinite; /* Rotation continue pendant 4 secondes */
+}
+
+.rotate_bf::before {
+  animation: rotation 4s linear infinite; /* Rotation continue pendant 4 secondes */
+}
+
+/* transform-origin pour que les fleurs tournent sur leur centre */
+#studio h2::after {
+  transform-origin: 54px 54px !important;
+}
+
+#studio h2::before {
+  transform-origin: 101px 101px !important;
+}
+
+.site-footer::before, .story h2::after {
+  transform-origin: 77px 77px !important;
+}/*# sourceMappingURL=style.css.map */
